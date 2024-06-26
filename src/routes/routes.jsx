@@ -7,7 +7,7 @@ import Home from "../containers/Home";
 import Movies from "../containers/Movies";
 import Series from "../containers/Series";
 
-import DefaultLayout from "../layaout/DefaultLayout";
+import DefaultLayout from "../containers/layaout/DefaultLayout";
 
 
 function Router() {
