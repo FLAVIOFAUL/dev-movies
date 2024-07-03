@@ -34,7 +34,7 @@ function Home() {
         <p>{movie.overview}</p>
         <ContainerButtons>
           
-          <Button >Assista Agora</Button>
+          <Button red >Assista Agora</Button>
           <Button >Assista o Trailer</Button>
         </ContainerButtons>
         </Info>
