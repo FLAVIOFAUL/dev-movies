@@ -6,11 +6,11 @@ import Button from '../../components/Header/Button/styles'
 
 function Home() {
   const [movie, setMovie] = useState([])
-
+  const [topMovies, setMovies] = useState()
   useEffect(() => {
-    async function getMovies() {
+    async function getTopMovies() {
       try {
-        const { data } = await api.get('/movie/popular')
+        const { data } = await api.get('/movie/top_rated')
         setMovie(data.results[0])
         console.log(data)
       } catch (error) {
@@ -19,6 +19,7 @@ function Home() {
     }
 
     getMovies()
+    getTopMovies()
   }, [])
 
   return (
