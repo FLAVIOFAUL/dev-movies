@@ -1,6 +1,6 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
-
+import PropTypes from 'prop-types'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { Container } from './styles'
 
 function Slider({ info, title }) {
@@ -22,7 +22,12 @@ function Slider({ info, title }) {
         ))}
       </Swiper>
     </Container>
-  )
+  );
 }
+
+Slider.propTypes = {
+  info: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default Slider
