@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { getImages } from '.././utils/getimages'
 import api from '../../services/api'
 import { Background, Info, Poster, Container, ContainerButtons } from './styles' 
 
@@ -40,7 +40,7 @@ function Home() {
 
       {movie && (
       <Background
-        img={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
+        img={getImages(movie.backdrop_path)}>
 
         <Container>
         <Info>
@@ -53,7 +53,7 @@ function Home() {
         </ContainerButtons>
         </Info>
         <Poster>
-        <img alt="capa-do-filme" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/>
+        <img alt="capa-do-filme" src={getImages(movie.poster_path)}/>
         </Poster>
         </Container>
       </Background>
