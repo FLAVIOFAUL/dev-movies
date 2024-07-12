@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getImages } from '.././utils/getimages'
+import { getImages } from '../../utils/getImages'
 import api from '../../services/api'
 import { Background, Info, Poster, Container, ContainerButtons } from './styles' 
 
@@ -9,7 +9,8 @@ import Slider from '../../components/Slider'
 function Home() {
   const [movie, setMovie] = useState([])
   const [topMovies, setMovies] = useState()
-
+  const [topSeries, setTopSeries]= useState()
+  
   useEffect(() => {
     async function getMovies() {
       try {
@@ -17,22 +18,34 @@ function Home() {
         setMovie(data.results[0])
         console.log(data)
       } catch (error) {
-        console.log(error)
+        console.log(error) 
       }
     }
-
-    async function getTopMovies() {
+    useEffect(() => {
+      async function getMovies() {
+        try {
+          const { data } = await api.get('/movie/popular')
+          setMovie(data.results[0])
+          console.log(data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      useEffect(() => {
+    async function getTopSeries() {
       try {
-        const { data } = await api.get('/movie/top_rated')
-        setMovies(data.results)
+        const { data } = await api.get('/tv/top_rated')
+        setTopSeries(data.results)
         console.log(data)
       } catch (error) {
         console.log(error)
       }
     }
-
+    
     getMovies()
     getTopMovies()
+    getTopSeries()
+
   }, [])
 
   return (
@@ -59,7 +72,13 @@ function Home() {
       </Background>
       )}
      {topMovies && <Slider info={topMovies} title={'Top Filmes'} /> }
+     {topSeries && <Slider info={topSeries} title={'Top Series'} /> }
     </>
+  
   )
-}
-export default Home
+} 
+  
+
+
+
+ export default Home 
