@@ -39,7 +39,7 @@ export const Li = styled.li`
   &::after {
    content:'';
    height: 3px;
-   width: ${(props) => (props.isActive ? '100%' = 0) };
+   width: ${(props) => (props.isActive ? '100%' : 0) };
    background-color: #189b20;
    position: absolute;
    bottom: -10px;
