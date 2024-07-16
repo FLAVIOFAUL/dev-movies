@@ -43,7 +43,14 @@ export const Li = styled.li`
    background-color: #189b20;
    position: absolute;
    bottom: -10px;
-   left: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   transition: width 0.5s ease-in-out;
+
+  }
+  &:houver::after{
+
+    width: 100%;
   }
 
 `
