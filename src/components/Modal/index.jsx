@@ -20,7 +20,28 @@ function Modal({ movieId }) {
     getMovies();
   }, [movieId]);
 
+<<<<<<< HEAD
   return (
+=======
+    useEffect(() => {
+        async function getMovies() {
+          try {
+            const { data } = await api.get(`/movie/${movieId}/videos`);
+            setMovie(data.results[0]);
+            setTopMovies(data.results); 
+            console.log(data);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+          getMovies()
+        
+         
+    },[]);
+
+
+  return(
+>>>>>>> d7a59ba21c310158702c0759c6e3437d81ca4b54
     <Background>
       {movie && (
         <Container>
