@@ -19,7 +19,7 @@ function Modal({ movieId }) {
             console.log(error);
           }
         }
-          getMovies();
+          getMovies()
         
          
     },[]);
