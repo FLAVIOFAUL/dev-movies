@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { getImages } from '../../utils/getImages';
 import api from '../../services/api';
 import { Background, Info, Poster, Container, ContainerButtons } from './styles';
-
+import Modal from '../../components/Modal';
 import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 

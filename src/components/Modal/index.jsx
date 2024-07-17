@@ -18,9 +18,11 @@ function Modal({ movieId }) {
           } catch (error) {
             console.log(error);
           }
-          getMovies()
+        }
+          getMovies();
         
-        }, [])
+         
+    },[]);
 
 
   return(
