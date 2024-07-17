@@ -7,6 +7,7 @@ import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 
 function Home() {
+  const [showModal, setShowModal]=useState(false);
   const [movie, setMovie] = useState([]);
   const [topMovies, setTopMovies] = useState(); 
   const [topSeries, setTopSeries] = useState();
@@ -41,13 +42,14 @@ function Home() {
     <>
       {movie && (
         <Background img={getImages(movie.backdrop_path)}>
+          {showModal && <Modal movieid={movie.id}/>}
           <Container>
             <Info>
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
               <ContainerButtons>
                 <Button red>Assista Agora</Button>
-                <Button>Assista o Trailer</Button>
+                <Button onClick={() => setShowModal(true)}>Assista o Trailer</Button>
               </ContainerButtons>
             </Info>
             <Poster>
