@@ -6,6 +6,7 @@ import Modal from '../../components/Modal';
 import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 import { useNavigate } from 'react-router-dom';
+import { getMovie, getMovies, getPopularSeries, getTopMovies, getTopPeople, getTopSeries } from '../../services/getData';
 
 
 function Home() {
@@ -13,32 +14,27 @@ function Home() {
   const [movie, setMovie] = useState([]);
   const [topMovies, setTopMovies] = useState(); 
   const [topSeries, setTopSeries] = useState();
+  const [topPeople ,setTopPeople]= useEffect();
+  const [popularSeries, setPopularSeries]= useEffect();
   const navigate = useNavigate()
+
+
   useEffect(() => {
-    async function getMovies() {
-      try {
-        const { data } = await api.get('/movie/popular');
-        setMovie(data.results[0]);
-        setTopMovies(data.results); 
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
+    async function getAllData() {
+
+      setMovie(await getMovie())
+      setTopMovies(await getTopMovies())
+      setTopSeries(await getTopSeries)
+      setPopularSeries(await getPopularSeries)
+      setTopPeople(await getTopPeople)
+      
     }
 
-    async function getTopSeries() {
-      try {
-        const { data } = await api.get('/tv/top_rated');
-        setTopSeries(data.results);
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+   
 
-    getMovies();
-    getTopSeries();
-  }, []);
+    getAllData();
+   
+  }, [])
 
   return (
     <>
