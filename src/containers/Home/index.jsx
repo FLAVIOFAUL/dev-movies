@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { getImages } from '../../utils/getImages';
-import api from '../../services/api';
+
 import { Background, Info, Poster, Container, ContainerButtons } from './styles';
 import Modal from '../../components/Modal';
 import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 import { useNavigate } from 'react-router-dom';
-import { getMovie, getMovies, getPopularSeries, getTopMovies, getTopPeople, getTopSeries } from '../../services/getData';
+import { getMovie, getPopularSeries, getTopMovies, getTopPeople, getTopSeries } from '../../services/getData';
 
 
 function Home() {
