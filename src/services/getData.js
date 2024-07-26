@@ -3,7 +3,7 @@ import api from "./api"
 export async function getMovies(){
   const {
     data: { results}
-  } = await.get('/movie/popular')
+  } = await api.get('/movie/popular')
 
     return results[0]
 }
@@ -11,7 +11,7 @@ export async function getMovies(){
 export async function gettopMovies(){
     const {
       data: { results}
-    } = await.get('/movie/top_rated')
+    } = await api.get('/movie/top_rated')
   
       return results 
   }
@@ -19,7 +19,7 @@ export async function gettopMovies(){
   export async function getTopSeries(){
     const {
       data: { results}
-    } = await.get('/tv/top_rated')
+    } = await api.get('/tv/top_rated')
   
       return results 
   }
@@ -27,7 +27,7 @@ export async function gettopMovies(){
   export async function getPopularSeries(){
     const {
       data: { results}
-    } = await.get('/tv/popular')
+    } = await api.get('/tv/popular')
   
       return results 
   }
@@ -35,7 +35,7 @@ export async function gettopMovies(){
   export async function getTopPeople(){
     const {
       data: { results}
-    } = await.get('/person/popular')
+    } = await api.get('/person/popular')
   
       return results 
   }
