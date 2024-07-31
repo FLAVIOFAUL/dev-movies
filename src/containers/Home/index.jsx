@@ -18,19 +18,30 @@ function Home() {
 
   useEffect(() => {
     async function getAllData() {
-      try {
-        setMovie(await getMovie());
-        setTopMovies(await getTopMovies());
-        setTopSeries(await getTopSeries());
-        setPopularSeries(await getPopularSeries());
-        setTopPeople(await getTopPeople());
-      } catch (error) {
-        console.error('Failed to fetch data:', error);
-      }
-    }
+      
+        Promise.all([
+        setMovie(),
+        setTopMovies(),
+        setTopSeries(),
+        setPopularSeries(),
+        setTopPeople(),
+      
+        
+    
+  ])
+    .then(([movie,topMovies,topSeries,getPopularSeries,topPeople]) => {
+
+   setMovie(movie)
+   setTopMovies(topMovies)
+   setTopSeries(topSeries)
+   setPopularSeries(popularSeries)
+   setTopPeople(topPeople)
+})
+  .catch((error)) => console.error(error)
+}
 
     getAllData();
-  }, []);
+  }, [])
 
   return (
     <>

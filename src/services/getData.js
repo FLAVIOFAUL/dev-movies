@@ -43,7 +43,9 @@ export async function getTopPeople() {
 export async function getMovie(movieId) {
   const {
     data: { results }
-  } = await api.get(`/movies/${movieId}/videos`);
+  } = await api.get(`/movies/${movieId}/videos`
+    
+  );
 
   return results;
 }
