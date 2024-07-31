@@ -1,4 +1,4 @@
-import { Container } from '.styles'
+import { Container } from './style'
 import React from 'react'
  
 function Detail() {

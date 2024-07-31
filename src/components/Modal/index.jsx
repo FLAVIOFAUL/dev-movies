@@ -2,19 +2,22 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types"; 
 import { Container } from "../Header/styles"; 
 import { Background } from "./styles"; 
+import { getMovies as fetchMovies } from "../../services/getData";
 
-import { getMovies } from "../../services/getData";
 function Modal({ movieId }) {
   const [movie, setMovie] = useState();
 
   useEffect(() => {
-    async function getMovies() {
-      
-       setMovie{await getMovies(movieId)}
-      
+    async function fetchMovie() {
+      try {
+        const movieData = await fetchMovies(movieId);
+        setMovie(movieData);
+      } catch (error) {
+        console.error('Failed to fetch movie data:', error);
+      }
     }
-    getMovies();
-  }, []);
+    fetchMovie();
+  }, [movieId]);
 
   return (
     <Background>
@@ -22,7 +25,7 @@ function Modal({ movieId }) {
         <Container>
           <iframe
             src={`https://www.youtube.com/embed/${movie.key}`}
-            title="Youtube Video player"
+            title="YouTube Video player"
             height="500px"
             width="100%"
           ></iframe>
@@ -31,7 +34,6 @@ function Modal({ movieId }) {
     </Background>
   );
 }
-
 
 Modal.propTypes = {
   movieId: PropTypes.any.isRequired,
