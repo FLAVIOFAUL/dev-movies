@@ -5,7 +5,7 @@ import Modal from '../../components/Modal';
 import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 import { useNavigate } from 'react-router-dom';
-import { getMovie, getPopularSeries, getTopMovies, getTopPeople, getTopSeries } from '../../services/getData';
+import { getMovies, getPopularSeries, getTopMovies, getTopPeople, getTopSeries } from '../../services/getData';
 
 function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +19,7 @@ function Home() {
   useEffect(() => {
     async function getAllData() {
       Promise.all([
-        getMovie(),
+        getMovies(),
         getTopMovies(),
         getTopSeries(),
         getPopularSeries(),

@@ -51,11 +51,10 @@ export async function getMovieVideos(movieId) {
 }
 
 export async function getMovieCredits(movieId) {
-  const {data} = await api.get(`/movies/${movieId}/videos`
-    
-  );
+  const {
+    data: { cast} }= await api.get(`/movies/${movieId}/videos` );
 
-  return data;
+  return cast;
 }
 
 export async function getMovieSimilar(movieId) {
