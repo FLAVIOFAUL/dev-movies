@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types"; 
 import { Container } from "../Header/styles"; 
 import { Background } from "./styles"; 
-import { getMovies as fetchMovies } from "../../services/getData";
+import { getMovieVideos as fetchMovies } from "../../services/getData";
 
 function Modal({ movieId }) {
   const [movie, setMovie] = useState();

@@ -40,7 +40,7 @@ export async function getTopPeople() {
   return results;
 }
 
-export async function getMovie(movieId) {
+export async function getMovieVideos(movieId) {
   const {
     data: { results }
   } = await api.get(`/movies/${movieId}/videos`
@@ -48,4 +48,32 @@ export async function getMovie(movieId) {
   );
 
   return results;
+}
+
+export async function getMovieCredits(movieId) {
+  const {data} = await api.get(`/movies/${movieId}/videos`
+    
+  );
+
+  return data;
+}
+
+export async function getMovieSimilar(movieId) {
+  const {
+    data: { results }
+  } = await api.get(`/movies/${movieId}/videos`
+    
+  );
+
+  return results;
+}
+
+export async function getMovieById(movieId) {
+  const {
+    data 
+  } = await api.get(`/movies/${movieId}/videos`
+    
+  );
+
+  return data;
 }
