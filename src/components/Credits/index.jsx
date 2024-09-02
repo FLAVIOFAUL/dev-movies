@@ -1,6 +1,7 @@
 import React from "react";
 import {Title,Container} from './styles';
-    
+import { getImages } from "../../utils/getImages"; 
+   
 function Credits({credits}) {
 
     return (
@@ -8,7 +9,7 @@ function Credits({credits}) {
         <Title>Credits</Title>
         {credits && (
         <Container>
-            {credits.slice(0.5).map((artist)) => (
+            {credits.slice(0.5).map((artist) => (
               <div key={artist.id}>
                 <img src={getImages(artist.profile_path)} />
                 <p>{artist.original_name}</p>

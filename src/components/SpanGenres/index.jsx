@@ -18,4 +18,4 @@ function SpanGenres({ genres }) {
 
 }
 
-   export default SpanGenres
+   export default SpanGenres;

@@ -49,18 +49,19 @@ export async function getMovieVideos(movieId) {
 
   return results;
 }
-
 export async function getMovieCredits(movieId) {
   const {
-    data: { cast} }= await api.get(`/movies/${movieId}/videos` );
+    data: { cast} 
+   } = await api.get(`/movies/${movieId}/Credits`
+    
+  );
 
   return cast;
 }
-
 export async function getMovieSimilar(movieId) {
   const {
     data: { results }
-  } = await api.get(`/movies/${movieId}/videos`
+  } = await api.get(`/movies/${movieId}/Similar`
     
   );
 
@@ -68,9 +69,7 @@ export async function getMovieSimilar(movieId) {
 }
 
 export async function getMovieById(movieId) {
-  const {
-    data 
-  } = await api.get(`/movies/${movieId}/videos`
+  const  { data } = await api.get(`/movies/${movieId}`
     
   );
 
